@@ -1,0 +1,19 @@
+@mixin menu {
+    display: flex;
+    padding: 10px;
+}
+
+.menu-vertical {
+    @include menu;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.menu-horizontal {
+    @include menu;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.button {
+    width: 100px;
+}
