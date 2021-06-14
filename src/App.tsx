@@ -1,35 +1,23 @@
-import React from "react";
+import React, { ReactElement, useState } from "react";
 import Menu from "./Menu";
+import Dialog from "./Dialog";
+import styles from "./style/app.module.scss";
+import Form from "./Form";
+import { MockMenuData } from "./MockMenuData";
 
-const menuData: menu = {
-    menuType: "desktop",
-    direction: "horizontal",
-    // direction: "vertical",
-    itemList: [
-        {
-            name: "test",
-            clickable: false,
-            hasNestedMenu: false,
-        },
-        {
-            name: "test1",
-            clickable: false,
-            hasNestedMenu: false,
-        },
-        {
-            name: "test2",
-            clickable: false,
-            hasNestedMenu: false,
-        },
-    ],
-};
+interface Props {}
 
-function App() {
+export default function App({}: Props): ReactElement {
+    let [dialogShow, setDialogShow] = useState(false);
+
     return (
-        <div className="App">
-            <Menu menu={menuData}></Menu>
+        <div className={styles.app}>
+            <Menu menu={MockMenuData} controlDialog={setDialogShow}></Menu>
+            {dialogShow ? (
+                <Dialog controlDialog={setDialogShow}>
+                    <Form></Form>
+                </Dialog>
+            ) : null}
         </div>
     );
 }
-
-export default App;

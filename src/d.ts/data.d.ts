@@ -1,16 +1,23 @@
-type menuDirection = "horizontal" | "vertical";
+type MenuDirection = "horizontal" | "vertical";
 
-type menuType = "mobile" | "desktop";
+type MenuType = "mobile" | "desktop";
 
-interface menu {
-    menuType: menuType;
-    direction: menuDirection;
-    itemList: menuItem[];
+type MenuItemType = "dialog" | "subMenu" | "normal";
+
+type SubMenuDirection = "top" | "right" | "bottom" | "left";
+
+interface Menu {
+    menuType: MenuType;
+    direction: MenuDirection;
+    itemList: MenuItem[];
 }
 
-interface menuItem {
+interface MenuItem {
     name: string;
     clickable: boolean;
+    type: MenuItemType;
     hasNestedMenu: boolean;
-    nestedMenu?: menu;
+    nestedMenu?: Menu;
+    fireDialog?: boolean;
+    nextMenuDirection?: SubMenuDirection;
 }

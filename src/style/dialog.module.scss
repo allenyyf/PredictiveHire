@@ -1,0 +1,34 @@
+.container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialog {
+    width: 400px;
+    margin: auto;
+    margin-top: 20vh;
+    background-color: #fff;
+}
+
+.dialog {
+    .header {
+        height: 100px;
+        text-align: right;
+    }
+    .content {
+        height: 300px;
+    }
+    .footer {
+        height: 100px;
+        display: flex;
+        justify-content: space-around;
+        .button {
+            width: 100px;
+            height: 50px;
+        }
+    }
+}

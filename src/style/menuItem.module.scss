@@ -1,0 +1,43 @@
+$item-width: 200px;
+$item-height: 50px;
+$pd: 4px;
+.item-bar {
+    display: flex;
+    // width: $item-width;
+    height: $item-height;
+    position: relative;
+}
+.item-bar + .item-bar {
+    margin-top: $pd;
+}
+
+.item-button {
+    width: $item-width;
+    // display: inline-block;
+}
+
+@mixin subMenu-container {
+    position: absolute;
+}
+
+.subMenu-container-top {
+    @include subMenu-container;
+    bottom: -$item-height;
+    padding: $pd 0;
+}
+
+.subMenu-container-right {
+    @include subMenu-container;
+    left: $item-width;
+    padding: 0 $pd;
+}
+.subMenu-container-bottom {
+    @include subMenu-container;
+    top: $item-height;
+    padding: $pd 0;
+}
+.subMenu-container-left {
+    @include subMenu-container;
+    left: -$item-width;
+    padding: 0 $pd;
+}
