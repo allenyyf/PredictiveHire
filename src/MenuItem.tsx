@@ -1,6 +1,7 @@
 import React, { ReactElement, useState } from "react";
 import Menu from "./Menu";
 import styles from "./style/menuItem.module.scss";
+import { useDispatch } from "react-redux";
 
 interface Props {
     meunItem: MenuItem;
@@ -17,18 +18,26 @@ export default function MenuItem({ meunItem }: Props): ReactElement {
         nextMenuDirection,
     } = meunItem;
 
-    const [isClick, setClick] = useState(false);
+    const [isHover, setHover] = useState(false);
+    const dispatch = useDispatch();
 
+    function clickButton(fireDialog: boolean | undefined) {
+        if (fireDialog) {
+            dispatch({ type: "display" });
+        }
+    }
     return (
         <div className={styles["item-bar"]}>
             <button
                 key={name}
                 className={styles["item-button"]}
-                onClick={() => setClick(true)}
+                onMouseEnter={() => setHover(true)}
+                onClick={() => clickButton(fireDialog)}
             >
                 {name}
             </button>
             <span
+                onMouseLeave={() => setHover(false)}
                 className={
                     styles[
                         `subMenu-container-${
@@ -37,7 +46,7 @@ export default function MenuItem({ meunItem }: Props): ReactElement {
                     ]
                 }
             >
-                {hasNestedMenu && isClick ? (
+                {hasNestedMenu && isHover ? (
                     <Menu menu={nestedMenu as Menu} />
                 ) : null}
             </span>

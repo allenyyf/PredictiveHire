@@ -4,17 +4,10 @@ import MenuItem from "./MenuItem";
 
 interface Props {
     menu: Menu;
-    controlDialog?: (value: boolean) => void;
 }
 
-export default function Menu({ menu, controlDialog }: Props): ReactElement {
+export default function Menu({ menu }: Props): ReactElement {
     let menuItemList = menu.itemList;
-    console.log(menuItemList);
-    // function fireDialog(item: MenuItem) {
-    //     if (item.fireDialog && controlDialog) {
-    //         controlDialog(true);
-    //     }
-    // }
     return (
         <div className={styles["menu-" + menu.direction]}>
             {menuItemList.map((menuItem) => (

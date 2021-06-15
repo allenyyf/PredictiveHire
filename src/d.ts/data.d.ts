@@ -21,3 +21,7 @@ interface MenuItem {
     fireDialog?: boolean;
     nextMenuDirection?: SubMenuDirection;
 }
+
+interface Dialog {
+    title: string;
+}

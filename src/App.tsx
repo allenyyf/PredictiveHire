@@ -8,16 +8,14 @@ import { MockMenuData } from "./MockMenuData";
 interface Props {}
 
 export default function App({}: Props): ReactElement {
-    let [dialogShow, setDialogShow] = useState(false);
-
     return (
         <div className={styles.app}>
-            <Menu menu={MockMenuData} controlDialog={setDialogShow}></Menu>
-            {dialogShow ? (
-                <Dialog controlDialog={setDialogShow}>
-                    <Form></Form>
-                </Dialog>
-            ) : null}
+            <Menu menu={MockMenuData}></Menu>
+            {/* {dialogShow ? ( */}
+            <Dialog>
+                <Form></Form>
+            </Dialog>
+            {/* ) : null} */}
         </div>
     );
 }

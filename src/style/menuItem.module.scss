@@ -6,6 +6,7 @@ $pd: 4px;
     // width: $item-width;
     height: $item-height;
     position: relative;
+    margin-top: $pd;
 }
 .item-bar + .item-bar {
     margin-top: $pd;
@@ -18,6 +19,12 @@ $pd: 4px;
 
 @mixin subMenu-container {
     position: absolute;
+    .item-bar {
+        margin-top: 0;
+    }
+    .item-bar + .item-bar {
+        margin-top: $pd;
+    }
 }
 
 .subMenu-container-top {

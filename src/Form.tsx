@@ -1,5 +1,5 @@
 import React, { ReactElement, useState } from "react";
-
+import styles from "./style/form.module.scss";
 interface Props {}
 
 export default function Form({}: Props): ReactElement {
@@ -8,17 +8,17 @@ export default function Form({}: Props): ReactElement {
 
     return (
         <div>
-            <form>
-                <div>
-                    <label>account:</label>
+            <form className={styles["container"]}>
+                <div className={styles["label-item"]}>
+                    <label className={styles.label}>account:</label>
                     <input
                         type="text"
                         value={account}
                         onChange={(e) => setAccount(e.target.value)}
                     ></input>
                 </div>
-                <div>
-                    <label>password:</label>
+                <div className={styles["label-item"]}>
+                    <label className={styles.label}>password:</label>
                     <input
                         type="password"
                         value={password}

@@ -107,6 +107,7 @@ export const MockMenuData: Menu = {
             clickable: false,
             type: "normal",
             hasNestedMenu: false,
+            fireDialog: true,
         },
     ],
 };

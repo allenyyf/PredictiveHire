@@ -16,19 +16,20 @@
 
 .dialog {
     .header {
-        height: 100px;
+        height: 60px;
         text-align: right;
     }
     .content {
-        height: 300px;
+        // height: 300px;
     }
     .footer {
         height: 100px;
         display: flex;
         justify-content: space-around;
+        align-items: center;
         .button {
-            width: 100px;
-            height: 50px;
+            width: 60px;
+            height: 30px;
         }
     }
 }
