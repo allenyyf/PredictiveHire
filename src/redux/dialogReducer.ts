@@ -2,15 +2,11 @@ const initialState = {
     display: false,
 };
 
-type ActionType = "display" | "hide";
-
-interface Action {
-    type: ActionType;
-    payload: Dialog;
-}
-
-export default function dialogReducer(state = initialState, action: Action) {
-    let { type, payload } = action;
+export default function dialogReducer(
+    state = initialState,
+    action: DialogAction
+) {
+    let { type } = action;
     switch (type) {
         case "display":
             return { display: true };
@@ -21,3 +17,5 @@ export default function dialogReducer(state = initialState, action: Action) {
             return state;
     }
 }
+
+function a({}: Dialog): void {}

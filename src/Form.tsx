@@ -15,23 +15,23 @@ export default function Form({ setFormData }: Props): ReactElement {
     return (
         <div>
             <form className={styles["container"]}>
-                <div className={styles["label-item"]}>
-                    <label className={styles.label}>account:</label>
+                <label className={styles["label-item"]}>
+                    <span className={styles.label}>account:</span>
                     <input
                         type="text"
                         value={account}
                         onChange={(e) => setAccount(e.target.value)}
                     ></input>
-                </div>
+                </label>
                 {/* <div>{account !== "account" ? "ACCOUNT IS WRONG" : ""}</div> */}
-                <div className={styles["label-item"]}>
-                    <label className={styles.label}>password:</label>
+                <label className={styles["label-item"]}>
+                    <span className={styles.label}>password:</span>
                     <input
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     ></input>
-                </div>
+                </label>
                 {/* <div>{password !== "password" ? "PASSWORD IS WRONG" : ""}</div> */}
             </form>
         </div>

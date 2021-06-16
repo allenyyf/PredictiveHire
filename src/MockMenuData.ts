@@ -4,20 +4,20 @@ const ForthLanyerMenu: Menu = {
     // direction: "vertical",
     itemList: [
         {
-            name: "forth-level-test",
+            name: "forth-level-clickable",
             clickable: false,
             hasNestedMenu: false,
             type: "dialog",
             fireDialog: true,
         },
         {
-            name: "forth-level-test2",
+            name: "forth-level-normal",
             clickable: false,
             type: "normal",
             hasNestedMenu: false,
         },
         {
-            name: "forth-level-test3",
+            name: "forth-level-normal",
             clickable: false,
             type: "normal",
             hasNestedMenu: false,
@@ -31,20 +31,20 @@ const ThirdLanyerMenu: Menu = {
     // direction: "vertical",
     itemList: [
         {
-            name: "third-level-test",
+            name: "third-level-clickable",
             clickable: false,
             hasNestedMenu: false,
             type: "dialog",
             fireDialog: true,
         },
         {
-            name: "third-level-test2",
+            name: "third-level-normal",
             clickable: false,
             type: "normal",
             hasNestedMenu: false,
         },
         {
-            name: "third-level-test3",
+            name: "third-level-nested-menu",
             clickable: false,
             type: "normal",
             hasNestedMenu: true,
@@ -59,14 +59,14 @@ const SecondLayerMenu: Menu = {
     // direction: "vertical",
     itemList: [
         {
-            name: "second-level-test",
+            name: "second-level-clickable",
             clickable: false,
             hasNestedMenu: false,
             type: "dialog",
             fireDialog: true,
         },
         {
-            name: "second-level-test2",
+            name: "second-level-nested-menu",
             clickable: false,
             type: "normal",
             hasNestedMenu: true,
@@ -74,7 +74,7 @@ const SecondLayerMenu: Menu = {
             nextMenuDirection: "right",
         },
         {
-            name: "second-level-test3",
+            name: "second-level-normal",
             clickable: false,
             type: "normal",
             hasNestedMenu: false,
@@ -88,14 +88,14 @@ export const MockMenuData: Menu = {
     // direction: "vertical",
     itemList: [
         {
-            name: "test",
+            name: "clickable",
             clickable: false,
             hasNestedMenu: false,
             type: "dialog",
             fireDialog: true,
         },
         {
-            name: "test1",
+            name: "nested-menu",
             clickable: false,
             type: "normal",
             hasNestedMenu: true,
@@ -103,11 +103,11 @@ export const MockMenuData: Menu = {
             nextMenuDirection: "bottom",
         },
         {
-            name: "test2",
+            name: "normal",
             clickable: false,
             type: "normal",
             hasNestedMenu: false,
-            fireDialog: true,
+            fireDialog: false,
         },
     ],
 };

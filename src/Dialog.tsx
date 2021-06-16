@@ -31,6 +31,7 @@ export default function Dialog({}: Props): ReactElement {
             setFormDataRight(false);
         } else {
             setFormDataRight(true);
+            dispatch({ type: "hide" });
         }
     }
 
@@ -48,12 +49,13 @@ export default function Dialog({}: Props): ReactElement {
     return (
         <div>
             {display ? (
-                <div className={styles.container}>
+                <div className={styles.container} title="dialog-container">
                     <div className={styles.dialog}>
                         <div className={styles.header}>
                             <button
                                 className={styles.button}
                                 onClick={() => dispatch({ type: "hide" })}
+                                title="close-button"
                             >
                                 X
                             </button>
@@ -70,12 +72,14 @@ export default function Dialog({}: Props): ReactElement {
                             <button
                                 className={styles.button}
                                 onClick={() => submit()}
+                                title="submit-button"
                             >
                                 submit
                             </button>
                             <button
                                 className={styles.button}
                                 onClick={() => dispatch({ type: "hide" })}
+                                title="cancel-button"
                             >
                                 cancel
                             </button>

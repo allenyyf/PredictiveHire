@@ -27,7 +27,7 @@ export default function MenuItem({ meunItem }: Props): ReactElement {
         }
     }
     return (
-        <div className={styles["item-bar"]}>
+        <div className={styles["item-bar"]} title="menuItem">
             <button
                 key={name}
                 className={styles["item-button"]}
