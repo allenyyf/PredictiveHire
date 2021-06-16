@@ -1,15 +1,50 @@
 import styles from "./style/dialog.module.scss";
-
-import React, { ReactElement } from "react";
+import Form from "./Form";
+import React, { ReactElement, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-interface Props {
-    children?: React.ReactNode;
-}
+interface Props {}
 
-export default function Dialog({ children }: Props): ReactElement {
+export default function Dialog({}: Props): ReactElement {
     const display = useSelector((state) => state.display);
-    const dispatch = useDispatch();
+    const dispatch = useDispatch(),
+        [formData, setFormData] = useState({
+            account: "",
+            password: "",
+        } as LoginFormData),
+        [isFormDataRight, setFormDataRight] = useState(true);
+
+    // useEffect(() => {
+    //     checkFormValue();
+    // }, [formData]);
+
+    function submit() {
+        checkFormValue();
+        if (isFormDataRight) {
+            requestForServer();
+        }
+    }
+
+    function checkFormValue() {
+        let { account, password } = formData;
+        if (account !== "account" || password !== "password") {
+            setFormDataRight(false);
+        } else {
+            setFormDataRight(true);
+        }
+    }
+
+    function requestForServer() {
+        fetch("/testToServer", {
+            method: "post",
+            headers: {
+                "Content-type":
+                    "application/x-www-form-urlencoded; charset=UTF-8",
+            },
+            body: JSON.stringify(formData),
+        });
+    }
+
     return (
         <div>
             {display ? (
@@ -23,9 +58,21 @@ export default function Dialog({ children }: Props): ReactElement {
                                 X
                             </button>
                         </div>
-                        <div className={styles.content}>{children}</div>
+                        <div className={styles.content}>
+                            <Form setFormData={setFormData}></Form>
+                            <div className={styles["tips-container"]}>
+                                {isFormDataRight
+                                    ? ""
+                                    : "ACCOUNT OR PASSWORD IS WRONG"}
+                            </div>
+                        </div>
                         <div className={styles.footer}>
-                            <button className={styles.button}>submit</button>
+                            <button
+                                className={styles.button}
+                                onClick={() => submit()}
+                            >
+                                submit
+                            </button>
                             <button
                                 className={styles.button}
                                 onClick={() => dispatch({ type: "hide" })}

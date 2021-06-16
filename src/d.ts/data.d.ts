@@ -25,3 +25,8 @@ interface MenuItem {
 interface Dialog {
     title: string;
 }
+
+interface LoginFormData {
+    account: string;
+    password: string;
+}
